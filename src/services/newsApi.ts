@@ -23,16 +23,13 @@ export interface NewsResponse {
 
 export class NewsApiService {
   private static async makeRequest(endpoint: string): Promise<NewsResponse> {
-    const response = await fetch(`${BASE_URL}${endpoint}`, {
-      headers: {
-        'X-API-Key': API_KEY,
-      },
-    })
-
+    const url = `${BASE_URL}${endpoint}&apiKey=${API_KEY}`
+    const response = await fetch(url)
+  
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
-
+  
     return response.json()
   }
 
