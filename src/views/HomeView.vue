@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { NewsApiService, type Article } from '../services/newsApi'
-import { NewsCard }from '../components/NewsCard.vue'
+import NewsCard from '../components/NewsCard.vue'
 
 const articles = ref<Article[]>([])
 const loading = ref(false)
